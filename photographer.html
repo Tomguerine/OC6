@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
@@ -16,9 +17,44 @@
       <h1>Photographe sélectionné</h1>
     </header>
     <main id="main">
-      <div class="photographer-header"></div>
-      <!-- Vous afficherez le photographe ici plus tard -->
+      <!-- Le contenu sera généré dynamiquement ici -->
     </main>
+
+    <!-- Modale de contact -->
+    <div
+      id="contact_modal"
+      class="contact-modal"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Contactez-moi</h2>
+          <button
+            id="modal-close"
+            class="modal-close"
+            aria-label="Fermer la modale"
+          >
+            ×
+          </button>
+        </div>
+        <p class="modal-photographer-name"></p>
+        <!-- Nom du photographe inséré dynamiquement -->
+        <form id="contact-form" class="contact-form">
+          <label for="first-name">Prénom</label>
+          <input type="text" id="first-name" name="firstName" required />
+
+          <label for="last-name">Nom</label>
+          <input type="text" id="last-name" name="lastName" required />
+
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="send-button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+
     <script src="dist/pages/photographer.js" type="module"></script>
   </body>
 </html>
