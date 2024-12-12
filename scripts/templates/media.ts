@@ -1,7 +1,7 @@
 import { Media } from "../pages/photographer";
 
 // Mappage entre les noms des photographes et leurs dossiers
-const photographerFolderMap: { [key: string]: string } = {
+export const photographerFolderMap: { [key: string]: string } = {
   "Mimi Keel": "Mimi",
   "Ellie-Rose Wilkens": "Ellie Rose",
   "Tracy Galindo": "Tracy",

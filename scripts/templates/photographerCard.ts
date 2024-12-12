@@ -8,7 +8,7 @@ type Photographer = {
   portrait: string;
 };
 
-function photographerTemplate(data: Photographer) {
+export function photographerTemplate(data: Photographer) {
   const { name, portrait, city, country, tagline, price, id } = data;
   const picture = `assets/photographers/${portrait}`;
 
@@ -18,7 +18,7 @@ function photographerTemplate(data: Photographer) {
 
     const link = document.createElement("a");
     link.setAttribute("href", `photographer.html?id=${id}`);
-    link.setAttribute("aria-label", `Aller à la page du photographe ${name}`);
+    link.setAttribute("aria-label", `Go to photographer ${name} page`);
     link.classList.add("photographer-link");
 
     const img = document.createElement("img");
@@ -42,16 +42,13 @@ function photographerTemplate(data: Photographer) {
     pPrice.textContent = `${price}€/jour`;
     pPrice.classList.add("photographer-price");
 
-    // On place l'image et le h2 dans le lien pour que l'ensemble soit cliquable
+    // Append elements
     link.appendChild(img);
     link.appendChild(h2);
-
-    // On ajoute le lien et les infos supplémentaires dans l'article
     article.appendChild(link);
     article.appendChild(pLocation);
     article.appendChild(pTagline);
     article.appendChild(pPrice);
-    link.setAttribute("href", `./photographer.html?id=${id}`);
 
     return article;
   }
