@@ -140,7 +140,7 @@ function createLightbox() {
       <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
       <button class="lightbox-prev" aria-label="Previous media">&#10094;</button>
       <div class="lightbox-media-container"></div>
-      <div class="lightbox-title"></div>
+      <p class="lightbox-title"></p>
       <button class="lightbox-next" aria-label="Next media">&#10095;</button>
     </div>
   `;
