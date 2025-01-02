@@ -12,12 +12,20 @@
   "include": [
     "scripts"
   ],
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
     "eslint": "^9.17.0",
     "globals": "^15.14.0",
-    "typescript-eslint": "^8.18.2"
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
