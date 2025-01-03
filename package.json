@@ -13,8 +13,14 @@
     "scripts"
   ],
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "dev": "nodemon --watch src --exec ts-node -r dotenv/config -r tsconfig-paths/register src/bootstrap.ts",
+    "start": "ts-node -r dotenv/config -r tsconfig-paths/register src/bootstrap.ts",
+    "build": "tsc",
+    "test:synchronize": "ts-node -r dotenv/config -r tsconfig-paths/register tests/smoke/synchronize.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{js,ts,json,css,md,yml}\""
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
