@@ -7,6 +7,7 @@ export const photographerFolderMap: { [key: string]: string } = {
   "Tracy Galindo": "Tracy",
   "Nabeel Bradford": "Nabeel",
   "Rhode Dubois": "Rhode",
+  //eslint-disable-next-line
   "Marcel Nikolic": "Marcel",
 };
 
