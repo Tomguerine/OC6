@@ -35,10 +35,12 @@ export function mediaTemplate(
     mediaElement = document.createElement("img");
     mediaElement.setAttribute("src", `${basePath}/${media.image}`);
     mediaElement.setAttribute("alt", media.title);
+    mediaElement.setAttribute("aria-label", `Image titled ${media.title}`);
   } else if (media.video) {
     mediaElement = document.createElement("video");
     mediaElement.setAttribute("src", `${basePath}/${media.video}`);
     mediaElement.setAttribute("controls", "true");
+    mediaElement.setAttribute("aria-label", `Video titled ${media.title}`);
   }
 
   if (mediaElement) {

@@ -22,7 +22,13 @@ const config = [
     rules: {
       ...typescriptPlugin.configs.recommended.rules,
       ...prettierConfig.rules,
-      "prettier/prettier": "error",
+      "prettier/prettier": [
+        "error",
+        {
+          // Ici on force Prettier à ne pas exiger de virgules terminales
+          trailingComma: "none",
+        },
+      ],
       "no-console": "warn",
       "@typescript-eslint/no-unused-vars": [
         "warn",

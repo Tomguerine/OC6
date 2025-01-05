@@ -1,7 +1,7 @@
 // src/pages/index.ts
 import { photographerTemplate } from "../templates/photographer.js";
 
-type Photographer = {
+export type Photographer = {
   name: string;
   id: number;
   city: string;

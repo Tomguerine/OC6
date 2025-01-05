@@ -199,6 +199,7 @@ function showPreviousMedia() {
   displayLightboxMedia(currentMediaIndex);
 }
 
+/// repetition
 function displayLightboxMedia(index: number) {
   const mediaItem = currentMediaList[index];
   const container = document.querySelector(".lightbox-media-container")!;
@@ -210,6 +211,7 @@ function displayLightboxMedia(index: number) {
     const img = document.createElement("img");
     // Use the photographer name in the path
     img.src = `assets/galerie/${folderName}/${mediaItem.image}`;
+    img.setAttribute("aria-label", mediaItem.title);
     img.alt = mediaItem.title;
     container.appendChild(img);
   } else if (mediaItem.video) {
@@ -266,24 +268,45 @@ async function init() {
       (m: Media) => m.photographerId === selectedPhotographer.id
     );
 
+    // Stocke la liste courante de médias
     currentMediaList = photographerMedia;
 
+    // ---- AJOUT : Génération de la galerie avec navigation clavier ----
     photographerMedia.forEach((mediaItem: Media, index: number) => {
       const mediaCard = mediaTemplate(mediaItem, selectedPhotographer.name);
       mediaCard.setAttribute("data-id", mediaItem.id.toString());
+
       if (mediaItem.date) {
         mediaCard.setAttribute("data-date", mediaItem.date);
       }
 
-      const clickableElement = mediaCard.querySelector("img, video");
+      // Récupère l'élément cliquable (img ou video) et le rend focusable
+      const clickableElement = mediaCard.querySelector(
+        "img, video"
+      ) as HTMLElement | null;
       if (clickableElement) {
+        // Rendez l'élément focusable
+        clickableElement.tabIndex = 0;
+        // Indique qu'il se comporte comme un bouton
+        clickableElement.setAttribute("role", "button");
+
+        // Clic souris => ouvre la lightbox
         clickableElement.addEventListener("click", () => {
           openLightbox(index);
+        });
+
+        // Navigation clavier => Entrée ou Espace
+        clickableElement.addEventListener("keydown", (event: KeyboardEvent) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openLightbox(index);
+          }
         });
       }
 
       gallery.appendChild(mediaCard);
     });
+    // ---- FIN AJOUT ----
 
     // Contact modal
     document.querySelector(".contact-button")!.addEventListener("click", () => {
